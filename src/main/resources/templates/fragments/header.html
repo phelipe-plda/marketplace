@@ -1,0 +1,54 @@
+<header th:fragment="modelheader">
+
+    <nav class="flex-container" >
+        <div class="d-flex justify-content-center">
+            <a class="navbar-brand" th:href="@{/home}">
+                <img  src="/img/cafecomchocolate1.svg" id="logo" >
+                <img  src="/img/cafecomchocolate2.svg" id="logo" >
+            </a>
+        </div>
+        <div class="d-flex justify-content-center">
+
+            <form>
+                <input type="text" placeholder="Buscar produtos.." id="inputSearch"  aria-label="Search" >
+                <button class="main-btn-3" type="submit">
+                    <img id="divBuscaImg" src="/img/lupa.png"/>
+                </button>
+            </form>
+        </div>
+        <div>
+            <a class="navbar-brand" th:href="@{/vendas/form/}">
+                Produtos
+            </a>
+        </div>
+        <div>
+            <a class="navbar-brand" sec:authorize="hasRole('ADMIN')" th:href="@{/vendas/list/}" >
+                Vendas
+            </a>
+        </div>
+       <!-- <div>
+            <a class="navbar-brand" href="#">
+                <img id="divBuscaImg" src="/img/login.png"/> Login
+            </a>
+ 
+        </div>-->
+        <div>
+            <a class="navbar-brand" th:href="@{/vendas/cart/}" >
+                <img id="divBuscaImg" src="/img/cesta.png"/>
+                <spam th:text="${session.venda != null} ? ${session.venda.itensVendas.size}"/>
+                
+            </a>
+        </div>
+        <div>
+             <form th:action="@{/logout}" method="post" class="navbar-brand">
+                 <button type="submit" class="main-btn-3" style="color: black"> Sair </button>
+            </form>
+        </div>
+    </nav>
+    <nav class="bordeContainer" >
+        <a></a>
+    </nav>
+</header>
+
+
+
